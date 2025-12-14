@@ -1,7 +1,7 @@
-# 🎓 Certification IA Developer - Alyra 
+# 🎓 Certification IA Developer - Alyra
 
 > Projets de certification  
-> **Promotion Douglas Adams** | 
+> **Promotion Douglas Adams** 
 
 ---
 
@@ -30,7 +30,50 @@ Application permettant d'identifier un plat à partir d'une photo et d'estimer s
 
 - **Dataset** : Food-101 (101 catégories, 101k images)
 - **Architecture** : MobileNetV2 + Transfer Learning
-- **Déploiement** : FastAPI + Streamlit + Docker
+- **Résultat** : 74.84% accuracy sur le jeu de test
+
+---
+
+## 🚀 Application NutrIA
+
+L'application est composée de deux services containerisés :
+
+| Service | Description | Port |
+|---------|-------------|------|
+| **API** | Backend FastAPI exposant le endpoint `/predict` | 8000 |
+| **Front** | Interface Streamlit pour upload d'images | 8501 |
+
+### Lancer l'application
+
+```bash
+cd DL-NutrIA/Deploy
+
+# Build et lancement des containers
+docker-compose up --build
+
+# Accéder à l'interface
+# → http://localhost:8501
+```
+
+### Utilisation
+
+1. Ouvrir l'interface Streamlit
+2. Uploader une photo de plat
+3. Obtenir la prédiction + estimation calorique
+
+---
+
+## 🛠 Stack technique
+
+| Catégorie | Technologies |
+|-----------|--------------|
+| **Langage** | Python 3.9+ |
+| **ML** | scikit-learn, pandas, numpy |
+| **Deep Learning** | TensorFlow / Keras |
+| **Visualisation** | matplotlib, seaborn |
+| **API** | FastAPI |
+| **Frontend** | Streamlit |
+| **Containerisation** | Docker, docker-compose |
 
 ---
 
