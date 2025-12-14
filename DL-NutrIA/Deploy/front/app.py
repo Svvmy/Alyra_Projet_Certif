@@ -29,11 +29,9 @@ if uploaded_file is not None:
                 files = {"file": ("image.jpg", uploaded_file, "image/jpeg")}
                 
                 # Call API
-                # Note: When running locally without docker, change API_URL to localhost
                 try:
                     response = requests.post(API_URL, files=files)
                 except requests.exceptions.ConnectionError:
-                     # Fallback for local run if Docker networking isn't set up yet
                      response = requests.post("http://127.0.0.1:8000/predict", files=files)
 
                 if response.status_code == 200:
@@ -57,7 +55,6 @@ if uploaded_file is not None:
                         # Display Chart
                         st.bar_chart(df["probability"])
                         
-                        # Optional: Display as a small table if needed, but chart is good.
                         # st.table(df)
                 else:
                     st.error(f"Error: {response.status_code} - {response.text}")
